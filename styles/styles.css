@@ -1,0 +1,317 @@
+:root{
+
+    /* ### Primary */
+    --Blue: hsl(246, 80%, 60%);
+
+    --Work: hsl(15, 100%, 70%);
+    --Play: hsl(195, 74%, 62%);
+    --Study: hsl(348, 100%, 68%);
+    --Exercise: hsl(145, 58%, 55%);
+    --Social: hsl(264, 64%, 52%);
+    --Self-care: hsl(43, 84%, 65%);
+
+    /* ### Neutral */
+    --Very-dark-blue: hsl(226, 43%, 10%);
+    --Dark-blue: hsl(235, 46%, 20%);
+    --Desaturated-blue: hsl(235, 45%, 61%);
+    --Pale-Blue: hsl(236, 100%, 87%);
+
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html,body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--Very-dark-blue);
+}
+
+html{
+    font-size: 62,5%;
+}
+
+body{
+    padding: 40px 0;
+}
+
+main{
+    width:  80%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+p, h1, h2{
+    margin: 0;
+}
+
+.user, .card{
+    border-radius: 12px;
+    background-color: var(--Dark-blue);
+}
+
+
+/* ======== USER STYLES ======== */
+
+.user{
+    border-radius: 12px;
+    grid-area: user;
+}
+
+.user__data{
+    background-color: var(--Blue);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 22px 22px;
+    border-radius: 12px;
+}
+
+.user__picture{
+    display: flex;
+    align-items: center;
+    width: 60px;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.user__picture img{
+    width: 100%;
+}
+
+.user__information{
+    color: white;
+}
+
+.user__information p{
+    margin-bottom: 5px;
+    font-weight: 300;
+    color: var(--Pale-Blue);
+}
+
+.user__information h1{
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+
+.user__time{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 20px;
+}
+
+.user__button{
+    border: none;
+    color: var(--Desaturated-blue);
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 0;
+}
+
+.user__button:active, .user__button:hover{
+    cursor: pointer;
+}
+
+.button--active{
+    color: white;
+}
+
+
+/* ======== */
+
+
+/* ======== CARD STYLES ======== */
+
+.card{
+    position: relative;
+    overflow: hidden;
+    padding-top: 35px;
+    color: white;
+}
+
+.work{
+    grid-area: work;
+}
+
+.play{
+    grid-area: var(--Play);
+}
+
+.study{
+    grid-area: study;
+}
+
+.social{
+    grid-area: social;
+}
+
+.exercise{
+    grid-area: exercise;
+}
+
+.self-care{
+    grid-area: self-care;
+}
+
+.card.work {
+    background-color: var(--Work);
+}
+
+.card.play {
+    background-color: var(--Play);
+}
+
+.card.study {
+    background-color: var(--Study);
+}
+
+.card.exercise {
+    background-color: var(--Exercise);
+}
+
+.card.social {
+    background-color: var(--Social);
+}
+
+.card.self-care {
+    background-color: var(--Self-care);
+}
+
+.card img{
+    width: 61px;
+    position: absolute;
+    top: -6px;
+    right: 10px;
+}
+
+.card__body{
+    position: relative;
+    border-radius: 12px;
+    background-color: var(--Dark-blue);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "card-title card__dots"
+                          "card__current_hours card__previous_hours  ";
+    padding: 21px;
+    height: 100%;
+}
+
+.card__title{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    grid-area: card-title;
+    align-self: center;
+    font-weight: 400;
+}
+
+.card__dots{
+    grid-area: card__dots;
+    font-size: 2rem;
+    color: var(--Pale-Blue);
+    margin-bottom: 10px;
+    text-align: end;
+}
+
+.card__current_hours{
+    grid-area: card__current_hours;
+    font-size: 1.7rem;
+    font-weight: 300;
+}
+
+.card__previous_hours{
+    grid-area: card__previous_hours;
+    color: var(--Pale-Blue);
+    align-self: center;
+    font-size: .9rem;
+    text-align: end;
+}
+
+
+
+
+/* ======== */
+
+
+/* ======== MEDIA QUERIES======== */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+   
+    main{
+        width:  80%;
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "user work play study"
+                             "user exercise social self-care" ;
+        gap: 2rem;
+    }
+
+    .user__data{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: first baseline;
+    }
+    
+
+    .user__picture{
+        align-items: center;
+        width: 80px;
+        margin-bottom: 20px;
+    }
+
+    .user__information{
+        margin-bottom: 60px;
+    }
+
+    .user__information h1{
+        font-weight: 300;
+        font-size: 2.1rem;
+    }
+
+    .user__time{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 20px;
+    }
+    
+    .user__button{
+        margin-bottom: 20px;
+    }
+
+
+    .card__body{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "card-title card__dots"
+                              "card__current_hours  card__current_hours  "
+                              "card__previous_hours card__previous_hours";
+        padding: 21px;
+        height: 100%;
+    }
+
+    .card__previous_hours{
+        align-self: center;
+        text-align: start;
+    }
+
+    .card__current_hours{
+        grid-area: card__current_hours;
+        font-size: 2.9rem;
+    }
+} 
